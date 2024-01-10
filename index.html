@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conditional Website Redirect</title>
+  <style>
+    body {
+      text-align: center;
+      font-size: 2em;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div id="time"></div>
+
+  <script>
+    function updateTime() {
+      var currentTime = new Date();
+      var hours = currentTime.getHours();
+      var minutes = currentTime.getMinutes();
+      var seconds = currentTime.getSeconds();
+
+      // Ensure two digits for minutes and seconds
+      minutes = (minutes < 10 ? "0" : "") + minutes;
+      seconds = (seconds < 10 ? "0" : "") + seconds;
+
+      var timeString = hours + ":" + minutes + ":" + seconds;
+      document.getElementById("time").innerHTML = timeString;
+
+      // Debugging: Log the current hour
+      console.log("Current hour: " + hours);
+
+      // Check the current hour and open the respective website
+      if (hours >= 8) {
+        // Debugging: Log redirection to website 2
+        console.log("Redirecting to website 2");
+        window.location.href = "https://dark-shadowblade.github.io/MSEdgeSearchClickerabhishek/";
+      } else {
+        // Debugging: Log redirection to website 1
+        console.log("Redirecting to website 1");
+        window.location.href = "https://msbing-one.github.io/Hello-group-/";
+      }
+    }
+
+    // Update time every second
+    setInterval(updateTime, 1000);
+
+    // Initial call to display time immediately
+    updateTime();
+  </script>
+</body>
+</html>
